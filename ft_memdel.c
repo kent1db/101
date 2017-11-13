@@ -1,28 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memccpy.c                                       :+:      :+:    :+:   */
+/*   ft_memdel.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: qrobert- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/10 13:29:28 by qrobert-          #+#    #+#             */
-/*   Updated: 2017/11/10 15:43:15 by qrobert-         ###   ########.fr       */
+/*   Created: 2017/11/13 17:31:18 by qrobert-          #+#    #+#             */
+/*   Updated: 2017/11/13 17:35:17 by qrobert-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memccpy(void *dst, const void *src, int c, size_t n)
+void	ft_memdel(void **ap)
 {
-	size_t i;
-
-	i = 0;
-	while (i < n)
+	if (ap != NULL)
 	{
-		((unsigned char *)dst)[i] = ((unsigned char *)src)[i];
-		if (((unsigned char *)src)[i] == (unsigned char)c)
-			return (dst + i + 1);
-		i++;
+		free(*ap);
+		*ap = NULL;
 	}
-	return (NULL);
 }
